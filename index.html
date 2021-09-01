@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MENYU</title>
+    <style>
+      * {
+        transition-timing-function: ease-out;
+        box-sizing: border-box;
+        text-decoration: none;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        color: #f2f2f2;
+        background: url(./image/menyu.jpg.png);
+        height: 100vh;
+        background-size: cover;
+        background-position: center;
+        font-family: monospace;
+        background-attachment: fixed;
+      }
+      .toggleNav {
+        border-bottom: 5px solid deepskyblue;
+        background-color: deepskyblue;
+        width: 100%;
+        height: 50%;
+        text-align: left;
+        line-height: 18px;
+        cursor: pointer;
+        color: white;
+        font-size: 30px;
+      }
+
+      nav {
+        width: 100%;
+        height: 150px;
+        /* left: 70%; */
+      }
+
+      .toggleNavButton {
+        transition-duration: 0, 3s;
+        width: 40px;
+        height: 3px;
+        background-color: white;
+        position: absolute;
+        top: 25px;
+        margin-left: 20px;
+        border-radius: 2px;
+      }
+
+      .toggleNavButton:before,
+      .toggleNavButton:after {
+        border-radius: 2px;
+        transition-duration: 0, 8s;
+        content: "";
+        position: absolute;
+        top: 10px;
+        left: 0;
+        background-color: white;
+        width: 40px;
+        height: 3px;
+      }
+
+      .toggleNavButton:after {
+        top: 20px;
+      }
+
+      .toggleNavButton.active {
+        width: 0;
+      }
+
+      .toggleNavButton.active:after {
+        top: 10px;
+        transform: rotate(45deg);
+      }
+
+      .toggleNavButton.active:before {
+        top: 10px;
+        transform: rotate(-45deg);
+      }
+
+      #subnav {
+        position: absolute;
+        display: inline-block;
+        height: 50vh;
+        width: 200px;
+        border-bottom: 0px solid #34495e;
+        background-color: #34495e;
+        transition-duration: 0.2s;
+        overflow: hidden;
+        height: 0px;
+      }
+
+      #subnav.active {
+        left: 0;
+        height: 200px;
+      }
+
+      #subnav ul {
+        /* width: 615px; */
+        margin: 0 auto;
+      }
+
+      #subnav ul li {
+        transition-duration: 0.3s;
+        display: block;
+        text-align: center;
+        width: 148px;
+        padding: 13px 0;
+        height: 50px;
+      }
+
+      #subnav ul li a {
+        color: white;
+        font-size: 20px;
+      }
+
+      #subnav ul li:hover {
+        background-color: hotpink;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="toggleNav">
+        <div class="toggleNavButton"></div>
+      </div>
+      <div id="subnav">
+        <ul>
+          <li><a href="">Home</a></li>
+          <li><a href="">Gallery</a></li>
+          <li><a href="">Services</a></li>
+          <li><a href="">About</a></li>
+        </ul>
+      </div>
+    </nav>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script>
+      $(".toggleNav").click(function () {
+        $("#subnav").toggleClass("active");
+        $(".toggleNavButton").toggleClass("active");
+      });
+    </script>
+
+    <span class="col-md"></span>
+    <div class="container"></div>
+  </body>
+</html>
